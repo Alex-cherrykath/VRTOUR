@@ -1,0 +1,369 @@
+ @import url("https://fonts.googleapis.com/css??family=Raleway:wght@100; 200; 400; 500&display=swap");
+ *{
+
+    margin: 0;
+    padding: 0;
+     box-sizing: border-box;
+      font-family:'Raleway',sans-serif;
+
+ }
+
+ a{
+    text-decoration:0 ;
+ }
+
+ html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 9px;
+ }
+
+ ::-webkit-scrollbar {
+
+    width: 8px;
+
+ }
+
+ ::-webkit-scrollbar-thumb {
+
+    background-color: #ccc;
+ }
+
+ body{
+
+    background-color: #111;
+
+ }
+
+ section{
+
+    margin-top: 50px;
+
+ }
+  
+header{
+
+    background-color: #222;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between ;
+    height: 50px;
+    padding:5%;
+
+}
+
+header .logo a {
+    font-size:25px;
+    color: #29d9d5;
+    
+
+}
+header .logo a span{
+
+    color: #fff;
+}
+
+.menu{
+    display: flex;
+    align-items: center;
+   
+}
+
+.menu li{
+
+    margin: 0 15px;
+    list-style-type: none;
+    top: 50%;
+}
+
+
+
+.menu li a{
+
+    color: #fff;
+    font-size: 14px;
+}
+
+.btn-resevation{
+    color:#29d9d5;
+     font-size: 15px;
+     border: 2px solid #29d9d5;
+     padding:5px 20px;
+     transition: 0.5s;
+     font-weight: bold;
+}
+
+.btn-resevation:hover{
+    background-color: #29d9d5;
+    color: #fff;
+}
+
+/*home acceuil CSS*/
+
+#home{
+    background: linear-gradient(rgba(0,0,0,0,1),#333), url("") ;
+    background-position: center;
+    background-size: 50px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column ;
+    position: relative;
+}
+
+ #home h2{
+    top: 50%;
+    left:45%;
+    font-size: 30px;
+    margin-bottom: 10px;
+    -webkit-text-stroke: transparent 0.02px;
+    color: #40c0c9;
+    text-transform: lowercase;
+ }
+
+ #home h4{
+    top: 50%;
+    left:45%;
+    font-size: 50px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    color: #fff; 
+ }
+
+ #home p{
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 12px;
+ }
+
+ .home-btn{
+    margin-bottom: 20px;
+ }
+
+ .find_trip{
+    background-color: #222;
+    padding: 20px;
+    width: 70%;
+    position: absolute;
+    bottom: -50px  ; 
+ } 
+
+ .find_trip form{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 100%;
+ }
+
+ .find_trip form div, .find_trip form input{ 
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+ }
+
+ .find_trip form label{
+    color: #999;
+    font-size: 15px;
+    margin-bottom: 10px;
+ }
+
+ .find_trip form input{
+    padding: 5px 20px;
+    background-color: transparent;
+    border: 0.2px solid #29d9d5;
+    outline: 0;
+    width: 80%;
+    font-size: 13px;
+    color: #fff;
+ }
+ 
+ .find_trip form input[type="submit"]{
+    display: flex;
+    align-items: center;
+    text-decoration: uppercase;
+    color: #29d9d5;
+    cursor: pointer;
+    transition: 0.5s;
+ }
+ .find_trip form input[type="submit"]:hover{
+    box-shadow: 0 0 20px #29d9d5;
+   
+ }
+
+ /** A propos css**/
+
+ #a-propos{
+   margin-top: 100px;
+   margin-bottom: 100px;
+   padding: 0 10%;
+   width: 100%;
+ }
+
+ .title{
+   text-transform: capitalize;
+   margin: 70px 0;
+   color: #29d9d5;
+   position: relative;
+   margin-left: 15px;
+   font-size: 18px;
+ }
+
+ .title::after{
+   position: absolute;
+   left: -15px;
+   content: "";
+   height: 100%;
+   background-color: #fff;
+   width: 5px;
+ }
+
+ .img-desc{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   width: 100%;
+ }
+
+ .img-desc .left{
+   position: relative;
+   margin-left: 10px;
+   height: 250px;
+   width: 100px;
+ }
+
+ .img-desc .right{
+   width: 60%;
+ } 
+
+ .img-desc .left video{
+   width: 400%;
+   height: 100%;
+   position: relative;
+   box-shadow:0 0 10px #29d9d5;
+
+ }
+
+ .img-desc .left::after{
+   position: absolute;
+   bottom: -20px;
+   right: 450px;
+   content: "";
+   height: 100%;
+   background-color: #29d9d5;
+   width: 400%;
+   z-index: -4;
+ }
+
+ 
+.img-desc .right h3{
+   color: #fff;
+   font-size: 25px;
+   margin-bottom: 20px;
+
+ }
+
+ .img-desc .right p{
+   color: #999;
+    font:14px;
+    margin-bottom: 36px;
+ }
+
+ .img-desc .right a{
+   border: 1px solid #29d9d5;
+   color:#29d9d5;
+   font-size: 14px;
+   padding: 8px 25px;
+   font-weight: bold;
+}  
+  
+
+/**destinations populaires css**/
+
+#destination-populaire{
+   margin-top: 100px;
+   margin-bottom: 50px;
+   padding: 0 50%;
+   width: 100%;
+ 
+}
+
+#destination-populaire .content{
+  display: flex;
+  padding: 20px;
+  height: 200px;
+
+}
+
+#destination-populaire .content .box{
+display: flex;
+padding: 20px;
+height: 500px;
+width: 500px;
+margin: auto;
+background-image:src("C:\Users\HP\Documents\VRTOUR\img1.jpg");
+}
+/*
+
+#destination-populaire .content .box .img{
+   height: 50%;
+   width: 50%;
+   margin: 20px;
+   object-fit: cover;
+}
+*/
+#destination-populaire .content .box .content{
+   position: absolute;
+   top: 0;
+   left: 0;
+   height:100% ;
+   width: 100% ;
+   text-align: center;
+   align-items: center;
+   text-transform: translateX(100%);
+   transition: 0.5s;
+}
+
+
+#destination-populaire .content .box .content h4{
+   font-size: 40px;
+   margin-bottom: 10px;
+}
+
+#destination-populaire .content .box  .content p{
+   padding: 2px;
+   font-size: 20px ;
+}
+
+
+#destination-populaire .content .box .content p:nth-child(3){
+   margin-bottom: 25px;
+}
+
+#destination-populaire .content .box .content a{
+   margin-top:60px;
+   padding: 10px 60px;
+   border:2px solid #29d9d5;
+   color: #29d9d5;
+   font-weight: bold;
+}
+
+#destination-populaire .content .box:hover{
+   box-shadow:0 0 10px #29d9d5;
+}
+
+#destination-populaire .content .box:hover .content{   
+ display: block;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-items:center ;
+ color: #29d9d5;
+ 
+ }
+ 
