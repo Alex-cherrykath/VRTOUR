@@ -285,7 +285,7 @@ header .logo a span{
 
 /**destinations populaires css**/
 
-#destination-populaire{
+/* #destination-populaire{
    margin-top: 100px;
    margin-bottom: 50px;
    padding: 0 50%;
@@ -308,7 +308,7 @@ width: 500px;
 margin: auto;
 background-image:src("C:\Users\HP\Documents\VRTOUR\img1.jpg");
 }
-/*
+
 
 #destination-populaire .content .box .img{
    height: 50%;
@@ -316,7 +316,7 @@ background-image:src("C:\Users\HP\Documents\VRTOUR\img1.jpg");
    margin: 20px;
    object-fit: cover;
 }
-*/
+
 #destination-populaire .content .box .content{
    position: absolute;
    top: 0;
@@ -365,5 +365,76 @@ background-image:src("C:\Users\HP\Documents\VRTOUR\img1.jpg");
  justify-items:center ;
  color: #29d9d5;
  
- }
+} **/
+
+/* code qui fonctionne */
+
+
+/* #destination-populaire{
+   margin-top: 100px;
+   margin-bottom: 50px;
+   padding: 0 50%;
+   width: 100%;
+ 
+} */
+
+#destination-populaire {
+  display: flex;
+  flex-direction: column;
+  /*j'ai aussi fait avec des pourcentages pour pas casser ton css général, mais je te conseille d'éviter ça sur les padding et margin, et de privilégier les px, parceque le % se base sur la taille de l'écran qui est très variable en fonction du pc. */
+  padding: 0 10%;
+  width: 100%;
+}
+
+#destination-populaire .box {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding: 20px;
+   height: 500px;
+   width: 100%;
+   margin: auto;
+   /*tu pourras remettre ton image*/
+   background-image:url("C:\Users\HP\Documents\VRTOUR\img1.jpg");
+}
+
+#destination-populaire .box .content {
+   display: none;
+}
+
+#destination-populaire .box .content h4{
+   font-size: 40px;
+   margin-bottom: 10px;
+}
+
+#destination-populaire .box  .content p{
+   padding: 2px;
+   font-size: 20px ;
+}
+
+#destination-populaire .box .content a{
+   margin-top:100px;
+   padding: 10px 60px;
+   border:2px solid #29d9d5;
+   color: #29d9d5;
+   font-weight: bold;
+}
+
+
+#destination-populaire .box:hover {
+   /*tu pourras remettre ton image*/
+   background:linear-gradient(0deg, rgba(0, 0, 0, 0.392), rgba(0, 0, 0, 0.391)), url("VRTOUR\img1.jpg");
+   box-shadow:0 0 10px #29d9d5;
+   color: #29d9d5;
+}
+
+#destination-populaire .box:hover .content {
+   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+
  
