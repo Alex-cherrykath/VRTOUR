@@ -394,8 +394,7 @@ background-image:src("C:\Users\HP\Documents\VRTOUR\img1.jpg");
    height: 500px;
    width: 100%;
    margin: auto;
-   /*tu pourras remettre ton image*/
-   background-image:url("C:\Users\HP\Documents\VRTOUR\img1.jpg");
+   background-image:url("img1.jpg");
 }
 
 #destination-populaire .box .content {
