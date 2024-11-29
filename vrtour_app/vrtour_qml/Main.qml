@@ -34,16 +34,11 @@ ApplicationWindow  {
 
         function removeFavorites(place_id: int) {
             let allFavorites = getSettings()
-            let to_remove = -1
-            for (let i = 0; i < allFavorites.length; i++) {
-                if (allFavorites[i] = place_id) {
-                    to_remove = i
-                }
-            }
-
             let newFavorites = []
-            for (let i = 0; i < allFavorites && i !== to_remove; i++) {
-                newFavorites.push(allFavorites[i])
+            for (let i = 0; i < allFavorites.length; i++) {
+                if (allFavorites[i] !== place_id) {
+                    newFavorites.push(allFavorites[i])
+                }
             }
             updateSettings(newFavorites)
         }

@@ -12,6 +12,8 @@ Page {
     property list<string> searchQuery: []
     property list<int> favQuery: []
 
+    clip: true
+
     background: Rectangle {
         anchors.fill: parent
         opacity: 0.05
@@ -58,6 +60,7 @@ Page {
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff
 
         ListView {
+            id: listView
             model: _vrt_backend_
             anchors.fill: parent
             spacing: 75

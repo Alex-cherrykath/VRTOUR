@@ -16,6 +16,27 @@ Frame {
     property real _latitude
     property real _longitude
 
+    readonly property int defaultHeight: 350
+    property bool fullCard: false
+
+    clip: true
+
+    function toggleFullCard() {
+        console.log("Toggle Full Card")
+        if (!fullCard) {
+            textArea.elide = Text.ElideNone
+            textArea.maximumLineCount = 10000
+            frame.height += (textArea.contentHeight + 50)
+            fullCard = true
+        }
+        else {
+            frame.height -= (textArea.contentHeight + 50)
+            textArea.elide = Text.ElideRight
+            textArea.maximumLineCount= 10
+            fullCard = false
+        }
+    }
+
     Location {
         id: place_position
         coordinate: QtPositioning.coordinate(_latitude, _longitude)
@@ -23,7 +44,17 @@ Frame {
 
     visible: true
 
-    height: 250
+    height: defaultHeight
+
+
+
+    MultiPointTouchArea {
+        anchors.fill: parent
+        mouseEnabled: true
+        onPressed: {
+            toggleFullCard()
+        }
+    }
 
     GridLayout {
         columns: 3
@@ -39,6 +70,8 @@ Frame {
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.maximumWidth: parent.width / 2
+            Layout.margins: 25
             Frame {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -61,27 +94,48 @@ Frame {
             }
         }
 
-        RowLayout {
+        ColumnLayout {
             Layout.columnSpan: 2
-            Layout.alignment: Qt.AlignHCenter| Qt.AlignTop
+            Layout.alignment: Qt.AlignCenter
+            Layout.fillWidth: true
             Layout.margins: 20
             RoundButton {
                 text: "VR"
                 icon.source: "./img/vr-brille.png"
+                Layout.alignment: Qt.AlignCenter
             }
             RoundButton {
                 id: map_button
                 text: "Map"
                 checkable: true
                 icon.source: "./img/pin-karte.png"
+                highlighted: checked
+                Layout.alignment: Qt.AlignCenter
+
+                onToggled: {
+                    if(checked) {
+                        frame.height += 600
+                        console.log("Adding map content height:", map.contentHeight)
+
+                        if (!map.initialized) {
+                            map.fitViewportToVisibleMapItems()
+                            routeModel.update()
+                            map.initialized = true
+                        }
+                    } else {
+                        frame.height -= 600
+                    }
+                }
             }
             RoundButton {
                 id: favorite_button
                 text: "Like"
                 checkable: true
                 checked: frame.favorited
+                highlighted: checked
                 icon.source: "./img/herz.png"
                 palette.accent: "red"
+                Layout.alignment: Qt.AlignCenter
 
                 onToggled: {
                     if (checked) {
@@ -100,22 +154,17 @@ Frame {
             center: QtPositioning.coordinate(3.844119, 11.501346) // Yaoundé
             copyrightsVisible: false
             zoomLevel: 10
+            z: 3
 
             Layout.columnSpan: 3
             Layout.alignment: Qt.AlignCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
-            Layout.preferredHeight: 500
+            Layout.preferredHeight: 600
+            Layout.maximumWidth: parent.width
+            Layout.margins: 25
 
             property bool initialized: false
-
-            onVisibleChanged: {
-                if (visible && !initialized) {
-                    map.fitViewportToVisibleMapItems()
-                    routeModel.update()
-                    initialized = true
-                }
-            }
 
             plugin: Plugin {
                 id: plugin
@@ -132,6 +181,7 @@ Frame {
 
             MapView {
                 id: mapView
+                anchors.fill: parent
             }
 
 
@@ -190,21 +240,23 @@ Frame {
             }
         }
 
-        TextArea {
+        Text {
             id: textArea
-            readOnly: true
+            elide: Text.ElideRight
             wrapMode: TextEdit.Wrap
+            maximumLineCount: 10
             text: frame._text
+
+            horizontalAlignment: Text.AlignLeft
+            verticalAlignment: Text.AlignTop
+
+            Layout.margins: 25
             Layout.alignment: Qt.AlignCenter
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.minimumHeight: 300
+            Layout.maximumWidth: parent.width
             Layout.columnSpan: 3
-
-            onPressed: {
-                console.log("TextArea pressed")
-                if (frame.height === 250) {frame.height += textArea.contentHeight}
-                else {frame.height = 250}
-            }
         }
 
     }

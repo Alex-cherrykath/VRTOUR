@@ -7,8 +7,10 @@ Page {
     id: page
     property list<int> favQuery: []
 
+    clip: true
+
     header: ToolBar {
-        height: 100
+        height: 75
         RowLayout {
             anchors.fill: parent
             Label {
@@ -19,7 +21,7 @@ Page {
                 Layout.alignment: Qt.AlignCenter
             }
 
-            Frame {
+            Pane {
                 clip: true
                 Layout.preferredWidth: page.width / 2
                 Layout.fillHeight: true
@@ -53,6 +55,7 @@ Page {
         ScrollBar.vertical.policy: ScrollBar.AlwaysOff
 
         ListView {
+            id: listView
             model: _vrt_backend_
             anchors.fill: parent
             spacing: 70
