@@ -9,15 +9,6 @@ ApplicationWindow  {
     visible: true
     title: qsTr("VR Tour 237")
 
-    // palette.active: ColorGroup {
-    //     accent: "#49A078"
-    //     base: "#0D1821"
-    //     mid: "#2589BD"
-    //     highlight: "#EFD9CE"
-    //     text: "#F0F4EF"
-
-    // }
-
 
     font {
         family: "Helvetica"

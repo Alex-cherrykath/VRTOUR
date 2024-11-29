@@ -68,22 +68,22 @@ Page {
 
                 width: ListView.view.width
 
-                required property string place_id
+                required property int place_id
                 required property string name
                 required property url img
-                required property var coordinates
                 required property url link_vr
                 required property string text
-                required property string latitude
-                required property string longitude
+                required property real latitude
+                required property real longitude
 
                 _place_id: place_id
                 _name: name
                 _img: img
-                _coordinates: coordinates
                 _link_vr: link_vr
                 _text: text
-                coordinates: QtPositioning.coordinate(latitude, longitude)
+                _latitude: latitude
+                _longitude: longitude
+
                 favorited: {
                     for (let i =0; i < page?.favQuery.length; i++) {
                         if (_place_id == page?.favQuery[i]) {
@@ -118,7 +118,7 @@ Page {
             name: "Berlin"
             img: "./img/berlin.jpeg"
             latitude: 52.52
-            longitude: 13.4050
+            longitude: 13.40
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
             events: false
             text: `Kindness to he horrible reserved ye.
@@ -151,7 +151,7 @@ Page {
             name: "Hamburg"
             img: "./img/berlin.jpeg"
             latitude: 50.52
-            longitude: 15.4050
+            longitude: 15.40
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
             events: true
             text: `Kindness to he horrible reserved ye.
