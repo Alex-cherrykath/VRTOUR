@@ -56,7 +56,7 @@ Page {
 
         ListView {
             id: listView
-            model: __vrt_database__.allPlaces
+            model: __vrt_database__?.allPlaces
             anchors.fill: parent
             spacing: 70
             anchors.margins: 25
@@ -107,7 +107,7 @@ Page {
             latitude: 52.50
             longitude: 13.42
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
-            text: `Kindness to he horrible reserved ye.
+            description: `Kindness to he horrible reserved ye.
             Effect twenty indeed beyond for not had county. The use him without
             greatly can private. Increasing it unpleasant no of contrasted no
             continuing. Nothing colonel my no removed in weather. It dissimilar

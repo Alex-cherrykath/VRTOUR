@@ -1,10 +1,12 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
 project(vrtour_app VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Positioning Location Sql Network)
+
+include(FetchContent)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
@@ -40,6 +42,22 @@ qt_add_qml_module(appvrtour_app
         SOURCES vrt_downloader.h vrt_downloader.cpp
 )
 
+if (ANDROID)
+    message(STATUS "Building for android")
+    FetchContent_Declare(
+      android_openssl
+      DOWNLOAD_EXTRACT_TIMESTAMP true
+      URL      https://github.com/KDAB/android_openssl/archive/refs/heads/master.zip
+#      URL_HASH MD5=c97d6ad774fab16be63b0ab40f78d945 #optional
+    )
+
+    FetchContent_MakeAvailable(android_openssl)
+    include(${android_openssl_SOURCE_DIR}/android_openssl.cmake)
+
+    add_android_openssl_libraries(appvrtour_app)
+
+endif()
+
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
 # explicit, fixed bundle identifier manually though.
@@ -61,3 +79,5 @@ install(TARGETS appvrtour_app
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+
