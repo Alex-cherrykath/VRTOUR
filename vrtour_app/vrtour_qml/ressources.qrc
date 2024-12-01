@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/berlin.jpeg</file>
+        <file>img/icon.jpg</file>
+        <file>img/die-einstellungen.png</file>
+        <file>img/heim.png</file>
+        <file>img/herz.png</file>
+        <file>img/suche.png</file>
+    </qresource>
+</RCC>
