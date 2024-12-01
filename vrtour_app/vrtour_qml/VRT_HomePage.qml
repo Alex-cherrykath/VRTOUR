@@ -21,7 +21,7 @@ Page {
                 Layout.alignment: Qt.AlignCenter
             }
 
-            Pane {
+            Frame {
                 clip: true
                 Layout.preferredWidth: page.width / 2
                 Layout.fillHeight: true
@@ -56,7 +56,7 @@ Page {
 
         ListView {
             id: listView
-            model: _vrt_backend_
+            model: __vrt_database__.allPlaces
             anchors.fill: parent
             spacing: 70
             anchors.margins: 25
@@ -69,7 +69,7 @@ Page {
                 required property string name
                 required property url img
                 required property url link_vr
-                required property string text
+                required property string description
                 required property real latitude
                 required property real longitude
 
@@ -77,7 +77,7 @@ Page {
                 _name: name
                 _img: img
                 _link_vr: link_vr
-                _text: text
+                _text: description
                 _latitude: latitude
                 _longitude: longitude
 
@@ -107,7 +107,6 @@ Page {
             latitude: 52.50
             longitude: 13.42
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
-            events: false
             text: `Kindness to he horrible reserved ye.
             Effect twenty indeed beyond for not had county. The use him without
             greatly can private. Increasing it unpleasant no of contrasted no
@@ -140,7 +139,6 @@ Page {
             latitude: 2.940594
             longitude: 9.910191
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
-            events: false
             text: `Kindness to he horrible reserved ye.
             Effect twenty indeed beyond for not had county. The use him without
             greatly can private. Increasing it unpleasant no of contrasted no
@@ -173,7 +171,6 @@ Page {
             latitude: 4.061536
             longitude: 9.786072
             link_vr: "https://360-grad-panorama.de/wp-content/uploads/2013/02/Potsdamer_Platz.jpg"
-            events: true
             text: `Kindness to he horrible reserved ye.
             Effect twenty indeed beyond for not had county. The use him without
             greatly can private. Increasing it unpleasant no of contrasted no

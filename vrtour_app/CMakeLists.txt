@@ -4,12 +4,16 @@ project(vrtour_app VERSION 0.1 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Positioning Location)
+find_package(Qt6 6.5 REQUIRED COMPONENTS Quick Positioning Location Sql Network)
 
 qt_standard_project_setup(REQUIRES 6.5)
 
+
+set(app_icon_resource "${CMAKE_CURRENT_SOURCE_DIR}/ressources.rc")
+
 qt_add_executable(appvrtour_app
     main.cpp
+    ${app_icon_resource}
 )
 
 file(GLOB_RECURSE
@@ -31,6 +35,9 @@ qt_add_qml_module(appvrtour_app
         QML_FILES vrtour_qml/Const.js
         QML_FILES vrtour_qml/VRT_HomePage.qml vrtour_qml/VRT_Page.qml
         QML_FILES vrtour_qml/VRT_PlaceCard.qml
+        SOURCES vrt_database.h vrt_database.cpp
+        SOURCES vrt_place.h vrt_place.cpp
+        SOURCES vrt_downloader.h vrt_downloader.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
@@ -45,7 +52,7 @@ set_target_properties(appvrtour_app PROPERTIES
 )
 
 target_link_libraries(appvrtour_app
-    PRIVATE Qt6::Quick Qt6::Positioning Qt6::Location
+    PRIVATE Qt6::Quick Qt6::Positioning Qt6::Location Qt6::Sql Qt6::Network
 )
 
 include(GNUInstallDirs)

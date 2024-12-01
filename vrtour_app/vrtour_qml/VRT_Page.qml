@@ -32,6 +32,8 @@ Page {
                 Layout.alignment: Qt.AlignCenter
                 Layout.fillHeight: true
                 Layout.preferredWidth: 50
+                Layout.margins: 5
+                color: "transparent"
                 Image {
                     anchors.fill: parent
                     source: "./img/suche.png"
@@ -45,7 +47,7 @@ Page {
                 Layout.fillWidth:  true
                 Layout.fillHeight: true
                 Layout.alignment: Qt.AlignCenter
-                Layout.preferredWidth: 300
+                Layout.margins: 5
 
                 onTextEdited: {
                     page.searchQuery[0] = searchField.text.toLowerCase()
@@ -61,7 +63,7 @@ Page {
 
         ListView {
             id: listView
-            model: _vrt_backend_
+            model: __vrt_database__.allPlaces
             anchors.fill: parent
             spacing: 75
             anchors.margins: 25
@@ -75,7 +77,7 @@ Page {
                 required property string name
                 required property url img
                 required property url link_vr
-                required property string text
+                required property string description
                 required property real latitude
                 required property real longitude
 
@@ -83,7 +85,7 @@ Page {
                 _name: name
                 _img: img
                 _link_vr: link_vr
-                _text: text
+                _text: description
                 _latitude: latitude
                 _longitude: longitude
 
